@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emilee!</title>
+    <title>Emilee Colton</title>
     
     <style>
         * {
@@ -12,31 +12,35 @@
             box-sizing: border-box;
         }
         
-        /* Main colors */
+        /* Base colors */
         :root {
-            --primary-pink: #FFB6D9;
-            --light-pink: #FFE5F0;
-            --pale-pink: #FFF5FB;
-            --dark-pink: #FF69B4;
-            --text-dark: #2D2D2D;
-            --text-light: #666666;
+            --primary-blue: #0EA5E9;
+            --dark-blue: #0369A1;
+            --darker-blue: #082F49;
+            --bg-dark: #0F172A;
+            --bg-darker: #0C111D;
+            --text-primary: #F8FAFC;
+            --text-secondary: #CBD5E1;
+            --text-tertiary: #94A3B8;
             --white: #FFFFFF;
-            --shadow-sm: 0 2px 8px rgba(255, 107, 161, 0.12);
-            --shadow-md: 0 8px 24px rgba(255, 107, 161, 0.15);
-            --shadow-lg: 0 16px 48px rgba(255, 107, 161, 0.2);
+            --card-bg: #1E293B;
+            --shadow-sm: 0 2px 8px rgba(6, 182, 212, 0.08);
+            --shadow-md: 0 8px 24px rgba(6, 182, 212, 0.12);
+            --shadow-lg: 0 16px 48px rgba(6, 182, 212, 0.16);
         }
         
         html {
             scroll-behavior: smooth;
         }
         
+        /* Basic setup */
         body {
-            /* Font from Apple */
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
-            background: linear-gradient(135deg, var(--pale-pink) 0%, var(--white) 100%);
-            color: var(--text-dark);
+            background: linear-gradient(135deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
+            color: var(--text-primary);
             line-height: 1.6;
             overflow-x: hidden;
+            min-height: 100vh;
         }
         
         /* Navigation */
@@ -45,9 +49,10 @@
             top: 0;
             left: 0;
             right: 0;
-            backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255, 0.8);
-            padding: 1rem 2rem;
+            backdrop-filter: blur(12px);
+            background: rgba(15, 23, 42, 0.7);
+            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+            padding: 1.2rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,26 +62,30 @@
         }
         
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: 700;
-            background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+        }
+        
+        .logo span {
+            background: linear-gradient(135deg, var(--primary-blue), #06B6D4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -0.5px;
         }
         
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 2.5rem;
             list-style: none;
         }
         
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--text-secondary);
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             position: relative;
             transition: color 0.3s ease;
         }
@@ -84,22 +93,26 @@
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -4px;
+            bottom: -6px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--primary-pink);
+            background: linear-gradient(90deg, var(--primary-blue), #06B6D4);
             transition: width 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-blue);
         }
         
         .nav-links a:hover::after {
             width: 100%;
         }
         
-        /* Hero Section */
+        /* Hero Section (the top) */
         .hero {
-            margin-top: 60px;
-            min-height: 100vh;
+            margin-top: 70px;
+            min-height: calc(100vh - 70px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -110,25 +123,27 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, var(--light-pink), transparent);
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.15), transparent);
             border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            animation: float 6s ease-in-out infinite;
+            top: -200px;
+            right: -200px;
+            animation: float 8s ease-in-out infinite;
+            filter: blur(40px);
         }
         
         .hero::after {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--light-pink), transparent);
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(14, 165, 233, 0.12), transparent);
             border-radius: 50%;
-            bottom: -50px;
-            left: -50px;
-            animation: float 8s ease-in-out infinite reverse;
+            bottom: -100px;
+            left: -100px;
+            animation: float 10s ease-in-out infinite reverse;
+            filter: blur(40px);
         }
         
         .hero-content {
@@ -139,42 +154,50 @@
         }
         
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 800;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--dark-pink), var(--primary-pink));
+            margin-bottom: 1.5rem;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            color: var(--text-primary);
+        }
+        
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--primary-blue), #06B6D4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            letter-spacing: -1px;
-            line-height: 1.1;
         }
         
         .hero p {
-            font-size: 1.3rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
             animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.4s both;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .cta-button {
             display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+            padding: 1.1rem 2.8rem;
+            background: linear-gradient(135deg, var(--primary-blue), #06B6D4);
             color: var(--white);
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 10px;
             font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
+            font-size: 0.95rem;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.2);
             border: none;
             cursor: pointer;
             animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) 0.6s both;
         }
         
         .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(6, 182, 212, 0.3);
         }
         
         .cta-button:active {
@@ -183,21 +206,23 @@
         
         /* Sections */
         .section {
-            padding: 6rem 2rem;
-            max-width: 1200px;
+            padding: 7rem 2rem;
+            max-width: 1300px;
             margin: 0 auto;
         }
         
         .section h2 {
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            color: var(--text-dark);
+            font-size: 3.2rem;
+            margin-bottom: 4rem;
+            color: var(--text-primary);
             text-align: center;
+            font-weight: 800;
+            letter-spacing: -1px;
             animation: slideInLeft 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
         .section h2 span {
-            background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
+            background: linear-gradient(135deg, var(--primary-blue), #06B6D4);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -206,14 +231,15 @@
         /* Section 1: Skills */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
         
         .skill-card {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 20px;
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(6, 182, 212, 0.1);
             box-shadow: var(--shadow-sm);
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
@@ -224,45 +250,50 @@
         .skill-card::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.3s ease;
-        }
-        
-        .skill-card:hover::before {
-            transform: scaleX(1);
+            inset: 0;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
         
         .skill-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
-            background: linear-gradient(135deg, var(--pale-pink), var(--white));
+            border-color: rgba(6, 182, 212, 0.3);
+        }
+        
+        .skill-card:hover::before {
+            opacity: 1;
+        }
+        
+        .skill-card-content {
+            position: relative;
+            z-index: 1;
         }
         
         .skill-icon {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 1.2rem;
+            display: inline-block;
         }
         
         .skill-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-dark);
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-primary);
+            font-weight: 700;
         }
         
         .skill-card p {
-            color: var(--text-light);
+            color: var(--text-secondary);
             font-size: 0.95rem;
+            line-height: 1.6;
         }
         
         /* Section 2: Gallery */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
         }
         
@@ -271,10 +302,12 @@
             border-radius: 16px;
             overflow: hidden;
             aspect-ratio: 1;
-            background: linear-gradient(135deg, var(--primary-pink), var(--light-pink));
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.2), rgba(14, 165, 233, 0.2));
+            border: 1px solid rgba(6, 182, 212, 0.2);
             box-shadow: var(--shadow-md);
             cursor: pointer;
             animation: fadeIn 0.6s ease 0.1s both;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
         .gallery-item:nth-child(2) {
@@ -296,22 +329,27 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            color: var(--white);
-            font-size: 1.3rem;
+            color: var(--text-primary);
+            font-size: 1.2rem;
             font-weight: 600;
             padding: 2rem;
             transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            background: rgba(15, 23, 42, 0.4);
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            border-color: rgba(6, 182, 212, 0.5);
+            box-shadow: 0 16px 40px rgba(6, 182, 212, 0.15);
         }
         
         .gallery-item:hover .gallery-content {
-            transform: scale(1.05);
-            backdrop-filter: blur(10px);
-            background: rgba(255, 107, 161, 0.2);
+            background: rgba(6, 182, 212, 0.15);
         }
         
         /* Section 3: Timeline */
         .timeline {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
             position: relative;
             padding: 2rem 0;
@@ -322,14 +360,14 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 3px;
+            width: 2px;
             height: 100%;
-            background: linear-gradient(180deg, var(--primary-pink), var(--dark-pink));
+            background: linear-gradient(180deg, var(--primary-blue), rgba(6, 182, 212, 0.3));
             top: 0;
         }
         
         .timeline-item {
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
             position: relative;
             animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
@@ -354,28 +392,30 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 20px;
-            height: 20px;
-            background: var(--white);
-            border: 4px solid var(--primary-pink);
+            width: 16px;
+            height: 16px;
+            background: var(--primary-blue);
+            border: 3px solid var(--bg-dark);
             border-radius: 50%;
-            top: 0;
+            top: 2px;
             z-index: 1;
             transition: all 0.3s ease;
+            box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
         }
         
         .timeline-item:hover .timeline-dot {
-            width: 28px;
-            height: 28px;
-            border-color: var(--dark-pink);
-            box-shadow: var(--shadow-md);
+            width: 22px;
+            height: 22px;
+            transform: translateX(-50%);
+            box-shadow: 0 0 0 8px rgba(6, 182, 212, 0.15);
         }
         
         .timeline-content {
             width: 45%;
-            padding: 1.5rem;
+            padding: 1.8rem;
             border-radius: 12px;
-            background: var(--white);
+            background: var(--card-bg);
+            border: 1px solid rgba(6, 182, 212, 0.1);
             box-shadow: var(--shadow-sm);
             transition: all 0.3s ease;
         }
@@ -393,148 +433,104 @@
         }
         
         .timeline-item:hover .timeline-content {
-            box-shadow: var(--shadow-lg);
-            transform: translateY(-4px);
-            background: linear-gradient(135deg, var(--pale-pink), var(--white));
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+            border-color: rgba(6, 182, 212, 0.3);
         }
         
         .timeline-year {
-            color: var(--primary-pink);
+            color: var(--primary-blue);
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             margin-bottom: 0.5rem;
         }
         
         .timeline-title {
-            color: var(--text-dark);
-            font-weight: 600;
-            font-size: 1rem;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.05rem;
             margin-bottom: 0.3rem;
         }
         
         .timeline-description {
-            color: var(--text-light);
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
-
+        
         /* Section 4: Contact */
         .contact-container {
-            max-width: 500px;
+            max-width: 550px;
             margin: 0 auto;
-            background: var(--white);
+            background: var(--card-bg);
+            border: 1px solid rgba(6, 182, 212, 0.1);
             padding: 3rem;
-            border-radius: 24px;
+            border-radius: 16px;
             box-shadow: var(--shadow-lg);
             animation: scaleIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
         
         .contact-container h3 {
             font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--text-dark);
+            margin-bottom: 1rem;
+            color: var(--text-primary);
             text-align: center;
+            font-weight: 700;
         }
         
-        .form-group {
-            margin-bottom: 1.5rem;
+        .contact-container p {
+            text-align: center;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-size: 0.95rem;
         }
         
-        .form-group label {
+        .contact-container .cta-button {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            font-size: 0.95rem;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            border: 2px solid var(--light-pink);
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            background: var(--pale-pink);
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-pink);
-            box-shadow: 0 0 0 3px rgba(255, 182, 217, 0.1);
-            background: var(--white);
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: linear-gradient(135deg, var(--primary-pink), var(--dark-pink));
-            color: var(--white);
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .submit-btn:active {
-            transform: translateY(0);
+            text-align: center;
         }
         
         /* Footer */
         footer {
-            background: linear-gradient(135deg, var(--pale-pink), var(--light-pink));
-            padding: 3rem 2rem;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(8, 47, 73, 0.6));
+            padding: 4rem 2rem;
             text-align: center;
-            color: var(--text-light);
-            border-top: 1px solid rgba(255, 182, 217, 0.3);
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(6, 182, 212, 0.1);
         }
         
         footer p {
-            margin: 0.5rem 0;
-            font-size: 0.95rem;
+            margin: 0.7rem 0;
+            font-size: 0.9rem;
         }
         
         .social-links {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
+            gap: 1rem;
         }
         
         .social-links a {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: var(--white);
-            border-radius: 50%;
-            color: var(--primary-pink);
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 10px;
+            color: var(--primary-blue);
             text-decoration: none;
             transition: all 0.3s ease;
             font-weight: bold;
-            box-shadow: var(--shadow-sm);
+            font-size: 1.1rem;
         }
         
         .social-links a:hover {
-            background: var(--primary-pink);
+            background: var(--primary-blue);
             color: var(--white);
             transform: translateY(-3px);
+            border-color: var(--primary-blue);
             box-shadow: var(--shadow-md);
         }
         
@@ -597,14 +593,27 @@
                 transform: translateY(0px);
             }
             50% {
-                transform: translateY(30px);
+                transform: translateY(40px);
             }
         }
         
         /* Responsive */
         @media (max-width: 768px) {
+            nav {
+                padding: 1rem 1.5rem;
+            }
+            
+            .nav-links {
+                gap: 1.5rem;
+                font-size: 0.85rem;
+            }
+            
+            .logo {
+                font-size: 1.1rem;
+            }
+            
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.8rem;
             }
             
             .hero p {
@@ -612,12 +621,7 @@
             }
             
             .section h2 {
-                font-size: 2rem;
-            }
-            
-            .nav-links {
-                gap: 1rem;
-                font-size: 0.85rem;
+                font-size: 2.2rem;
             }
             
             .timeline::before {
@@ -635,16 +639,17 @@
             }
             
             .contact-container {
-                padding: 2rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
+                padding: 2.5rem;
             }
             
             .hero::before,
             .hero::after {
-                display: none;
+                width: 300px;
+                height: 300px;
+            }
+            
+            .section {
+                padding: 5rem 1.5rem;
             }
         }
         
@@ -653,16 +658,29 @@
                 font-size: 2rem;
             }
             
+            .hero p {
+                font-size: 1rem;
+            }
+            
             .section h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
             .nav-links {
-                gap: 0.5rem;
+                gap: 1rem;
+                font-size: 0.75rem;
             }
             
             .section {
-                padding: 3rem 1rem;
+                padding: 3.5rem 1rem;
+            }
+            
+            .skill-card {
+                padding: 1.8rem;
+            }
+            
+            .contact-container {
+                padding: 1.8rem;
             }
         }
     </style>
@@ -670,7 +688,7 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">Emille Colton</div>
+        <div class="logo">✨ <span>About Me</span></div>
         <ul class="nav-links">
             <li><a href="#skills">Skills</a></li>
             <li><a href="#gallery">Gallery</a></li>
@@ -682,10 +700,10 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>Hello, I'm Emilee!</h1>
-            <p>Genius mastermind who's gonna end up in space one day</p>
+            <h1>Hello, I'm <span>Emilee</span></h1>
+            <p>Genius mastermind aerospace engineer</p>
             <button class="cta-button" onclick="document.getElementById('skills').scrollIntoView({behavior: 'smooth'})">
-                Explore
+                Explore More
             </button>
         </div>
     </section>
@@ -695,48 +713,56 @@
         <h2>My <span>Skills</span></h2>
         <div class="skills-grid">
             <div class="skill-card">
-                <div class="skill-icon">📖</div>
-                <h3>Reading</h3>
-                <p>I'm a very fast reader!</p>
+                <div class="skill-card-content">
+                    <div class="skill-icon">🎨</div>
+                    <h3>Robots</h3>
+                    <p>Creating beautiful and intuitive robots with meticulous attention to detail.</p>
+                </div>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">✏</div>
-                <h3>Writing</h3>
-                <p>I can do that too!</p>
+                <div class="skill-card-content">
+                    <div class="skill-icon">💻</div>
+                    <h3>coding</h3>
+                    <p>Building projcts with modern technologies.</p>
+                </div>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">🚀</div>
-                <h3>Space</h3>
-                <p>I know a thing or two about it</p>
+                <div class="skill-card-content">
+                    <div class="skill-icon">🚀</div>
+                    <h3>Innovation</h3>
+                    <p>Bringing ideas to life with creative problem-solving and strategic thinking.</p>
+                </div>
             </div>
             <div class="skill-card">
-                <div class="skill-icon">😆</div>
-                <h3>Fun</h3>
-                <p>I'm really cool and fun!!! :D</p>
+                <div class="skill-card-content">
+                    <div class="skill-icon">🧠<div>
+                    <h3>Genius</h3>
+                    <p>absolute genius</p>
+                </div>
             </div>
         </div>
     </section>
     
     <!-- Section 2: Gallery -->
     <section id="gallery" class="section">
-        <h2>My <span>Stuff</span></h2>
+        <h2>My <span>Gallery</span></h2>
         <div class="gallery-grid">
             <div class="gallery-item">
-                <div class="gallery-content">Add whatever you'd like</div>
+                <div class="gallery-content">Project One</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-content">here too</div>
+                <div class="gallery-content">Project Two</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-content">Another one</div>
+                <div class="gallery-content">Project Three</div>
             </div>
             <div class="gallery-item">
-                <div class="gallery-content">4 in total</div>
+                <div class="gallery-content">Project Four</div>
             </div>
         </div>
     </section>
     
-    <!-- Section 3: Timeline -->
+    <!-- Section 3: Timeline/Journey -->
     <section id="journey" class="section">
         <h2>My <span>Journey</span></h2>
         <div class="timeline">
@@ -745,53 +771,51 @@
                 <div class="timeline-content">
                     <div class="timeline-year">2008</div>
                     <div class="timeline-title">Dramatic entry</div>
-                    <div class="timeline-description">I was born before I was supposed to, but it's ok</div>
+                    <div class="timeline-description">I was born</div>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="timeline-year">2021</div>
-                    <div class="timeline-title">Intreset in stem sparked</div>
-                    <div class="timeline-description">Super Awesome</div>
+                    <div class="timeline-title">First Project</div>
+                    <div class="timeline-description">Completed my first robot design project</div>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
                     <div class="timeline-year">2023</div>
-                    <div class="timeline-title">Robotics</div>
-                    <div class="timeline-description">Built robots, which did really good</div>
+                    <div class="timeline-title">All A's</div>
+                    <div class="timeline-description">4.7 GPA</div>
                 </div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-dot"></div>
                 <div class="timeline-content">
-                    <div class="timeline-year">2026</div>
-                    <div class="timeline-title">Made this website</div>
-                    <div class="timeline-description">I made this website! Not my little brother!</div>
+                    <div class="timeline-year">2024</div>
+                    <div class="timeline-title">Excellence</div>
+                    <div class="timeline-description">Team captain!</div>
                 </div>
             </div>
         </div>
     </section>
-
+    
     <!-- Section 4: Contact -->
     <section id="contact" class="section">
-        <h2>My <span>Contacts</span></h2>
+        <h2>Contact <span>Me</span></h2>
         <div class="contact-container">
-            <h3>say hi</h3>
-            <p style="text-align: center; color: var(--text-light); margin-bottom: 2rem; font-size: 0.95rem;">
-                Feel free to send me an email!
-            </p>
-            <a href="mailto:emilee@email.com" class="submit-btn" style="display: block; text-align: center; text-decoration: none;">
-                Send me an Email!
+            <h3>Send me an email!</h3>
+            <p>Feel free to send me an email!</p>
+            <a href="mailto:your.email@gmail.com" class="cta-button">
+                Send me an Email
             </a>
         </div>
     </section>
     
     <!-- Footer -->
     <footer>
-        <p>&copy; 2026 Emille Colton</p>
+        <p>&copy; 2026 All rights reserved.</p>
         <div class="social-links">
             <a href="https://linkedin.com/in/your_username" title="LinkedIn" target="_blank">💼</a>
             <a href="https://github.com/your_username" title="GitHub" target="_blank">🔗</a>
@@ -799,38 +823,14 @@
     </footer>
     
     <script>
-        // Form submission handler
-        function handleSubmit(event) {
-            event.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            
-            // Show success message
-            const form = event.target;
-            const submitBtn = form.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            
-            submitBtn.textContent = '✓ Message sent!';
-            submitBtn.style.background = 'linear-gradient(135deg, #90EE90, #00AA00)';
-            
-            // Reset form
-            form.reset();
-            
-            // Reset button after 3 seconds
-            setTimeout(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.style.background = '';
-            }, 3000);
-        }
-        
         // Smooth scroll spy for nav links
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', (e) => {
                 e.preventDefault();
                 const target = document.querySelector(link.getAttribute('href'));
-                target.scrollIntoView({ behavior: 'smooth' });
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
         
@@ -857,7 +857,7 @@
             const hero = document.querySelector('.hero-content');
             const scrolled = window.pageYOffset;
             if (hero && scrolled < window.innerHeight) {
-                hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.transform = `translateY(${scrolled * 0.4}px)`;
             }
         });
     </script>
